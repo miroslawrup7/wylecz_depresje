@@ -28,15 +28,89 @@
   outline: 0;
   box-sizing: border-box;
   background-color: transparent;
-  color: #777777;
+  color: #505050;
+  font-family: "OpenSans400", sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
+.radio-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+.radio-container .radio {
+  display: block;
+  position: relative;
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  flex-shrink: 0;
+  /* Hide the browser's default checkbox */
+  /* Create a custom checkbox */
+  /* On mouse-over, add a background color */
+  /* When the checkbox is checked, add a background */
+  /* When the checkbox is checked, add a background */
+  /* When the checkbox is checked, add a background */
+  /* Create the checkmark/indicator (hidden when not checked) */
+  /* Show the checkmark when checked */
+  /* Style the checkmark/indicator */
+}
+.radio-container .radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+}
+.radio-container .radio .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(115, 181, 40, 0.2980392157);
+}
+.radio-container .radio input:checked ~ .label-text {
+  color: red;
+}
+.radio-container .radio .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.radio-container .radio input:checked ~ .checkmark:after {
+  display: block;
+}
+.radio-container .radio .checkmark:after {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  background-color: rgba(91, 168, 2, 0.7450980392);
+}
+.radio-container .radio:has(input:checked) + .label-text {
+  color: #505050;
+}
+.radio-container .label-text {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0 12px;
+  font-size: 14px;
+  color: #8d8d8d;
+}
+
 .container {
-  width: 1120px;
+  max-width: 1120px;
   margin: 0 auto;
   position: relative;
 }
@@ -48,6 +122,10 @@ html {
   left: 0;
   top: 0;
   width: 100vw;
+  z-index: 99;
+  padding-bottom: 30px;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(180deg, rgb(255, 255, 255) 75%, rgba(255, 255, 255, 0) 100%);
 }
 .container .questionnaire .title-container .title-box {
   text-align: center;
@@ -55,15 +133,17 @@ html {
   padding: 24px 60px;
 }
 .container .questionnaire .title-container .title-box .title {
-  font-family: "OpenSans700", sans-serif;
+  font-family: "Lato700", sans-serif;
   font-size: 32px;
   color: #fff;
   font-weight: normal;
+  letter-spacing: 1px;
 }
 .container .questionnaire .title-container .title-box .subtitle {
-  font-family: "OpenSans400", sans-serif;
+  font-family: "Lato400", sans-serif;
   font-size: 20px;
   color: #fff;
+  letter-spacing: 0.5px;
 }
 .container .questionnaire .title-container .progress-box {
   height: 25px;
@@ -82,18 +162,48 @@ html {
   height: 100%;
   font-size: 14px;
   color: #fff;
-  font-family: "OpenSans400", sans-serif;
+  font-family: "Lato400", sans-serif;
   text-align: center;
-  background-color: #5aa802;
+  background-color: #5AA802;
   box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.2) inset;
   transition: width 0.6s ease;
   animation: progress-bar-stripes 1.5s linear infinite;
 }
 .container .questionnaire .questions-container {
-  margin-top: 150px;
-  border: 1px purple dotted;
+  margin-top: 170px;
 }
-
+.container .questionnaire .questions-container .section {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  padding: 20px 30px;
+}
+.container .questionnaire .questions-container .section .section-title {
+  font-family: "Lato700", sans-serif;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+.container .questionnaire .questions-container .section .questions-box {
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container .questionnaire .questions-container .section .questions-box .question-box {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  box-shadow: rgba(50, 50, 93, 0.1) 0px 2px 5px -1px, rgba(0, 0, 0, 0.1) 0px 1px 3px -1px;
+}
+.container .questionnaire .questions-container .section .questions-box .question-box .question {
+  padding: 10px;
+}
+.container .questionnaire .questions-container .section .questions-box .question-box .answers {
+  width: 400px;
+  padding: 0 10px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 20px;
+}
 @keyframes progress-bar-stripes {
   0% {
     background-position: 50px 0;
