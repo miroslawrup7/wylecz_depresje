@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'ProximaBold';
+    src: url("../fonts/ProximaSoft-Bold.ttf");
+}
+
+$szary_tekst: #4E4E4E;
+$jasno_szary: #F6F6F6;
+$czerwony: #D91F25;
+$ciemno-zielony: #0B594D;
+$zielony: #319181;
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    line-height: 1.4;
+    vertical-align: baseline;
+    text-decoration: none;
+    outline: 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: $szary_tekst;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: #F2F2F2;
+}
+
+.container {
+    width: 1120px;
+    margin: 0 auto;
+    // height: 100vh; // zmień na 100% po umieszczeniu w Wordpress
+    position: relative;
+    overflow: hidden;
+    // border: dotted 1px red;
+}
