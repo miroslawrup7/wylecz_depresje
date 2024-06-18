@@ -262,6 +262,12 @@ html {
                         padding: 10px;
                         flex-direction: column;
                         box-shadow: rgba(50, 50, 93, 0.1) 0px 2px 5px -1px, rgba(0, 0, 0, 0.1) 0px 1px 3px -1px;
+                        border: solid 1px #fff;
+
+                        &:hover {
+                            border: solid 1px #02a8a32d;
+                            // box-shadow: none;
+                        }
 
 
                         .question {
