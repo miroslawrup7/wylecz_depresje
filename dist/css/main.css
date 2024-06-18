@@ -104,7 +104,7 @@ html {
 .radio-container .label-text {
   display: inline-block;
   cursor: pointer;
-  margin: 0 12px;
+  padding: 0 12px;
   font-size: 14px;
   color: #8d8d8d;
 }
