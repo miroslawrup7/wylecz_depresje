@@ -51,6 +51,7 @@ $jasny_morski: #73b5284c;
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 170px;
 }
 
 button {
@@ -257,7 +258,7 @@ button {
                 flex-wrap: wrap;
                 width: calc(100% - 430px);
                 max-width: 800px;
-                border: dotted 1px red;
+                // border: dotted 1px red;
                 justify-content: flex-end;
                 height: calc(100% - 30px - 25px);
                 align-content: center;
@@ -266,12 +267,25 @@ button {
                     // flex-basis: calc(25% - 4px);
                     // border: dotted 1px yellow;
                     font-size: 12px;
-                    color: #222222;
+                    color: #ffffffc6;
                     background: rgba(255, 255, 255, 0.2);
-                    padding: 2px 10px;
+                    padding: 4px 10px;
                     // border-radius: 5px;
                     width: 190px;
                     text-align: center;
+                    cursor: pointer;
+                    position: relative;
+
+
+                    .overlay {
+                        position: absolute;
+                        width: 0%;
+                        height: 3px;
+                        left: 0;
+                        bottom: 0;
+                        background-color: rgba(255, 255, 255, 0.5);
+
+                    }
                 }
             }
         }
@@ -289,6 +303,13 @@ button {
                     font-family: 'Lato700', sans-serif;
                     font-weight: normal;
                     margin-bottom: 20px;
+
+                    span {
+                        font-size: 14px;
+                        margin-left: 10px;
+                        color: $szary_tekst2;
+                        opacity: 0.7;
+                    }
                 }
 
                 .questions-box {
