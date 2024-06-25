@@ -182,9 +182,9 @@ button {
 
             .title-box {
                 // border: dotted 1px red;
-                text-align: center;
+
                 background-color: $morski;
-                padding: 24px 60px;
+                padding: 24px 60px 24px 30px;
 
 
                 .title {
@@ -244,6 +244,32 @@ button {
                     transform: translate(-50%, -50%);
                     color: #222222;
                     padding-top: 1px;
+                }
+            }
+
+            .tags {
+                position: absolute;
+                right: 20px;
+                top: 0;
+                padding: 5px;
+                gap: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                width: calc(100% - 430px);
+                max-width: 600px;
+                border: dotted 1px red;
+                justify-content: space-around;
+                height: calc(100% - 30px - 25px);
+                align-content: center;
+
+                .tag {
+                    // flex-basis: calc(25% - 4px);
+                    // border: dotted 1px yellow;
+                    font-size: 12px;
+                    color: #222222;
+                    background: rgba(255, 255, 255, 0.2);
+                    padding: 5px 10px;
+                    border-radius: 5px;
                 }
             }
         }
