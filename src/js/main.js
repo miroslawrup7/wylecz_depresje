@@ -135,7 +135,6 @@ const calculateRealisationTag10 = ()=> {
         tag10overlayLoc.style.width = percent + "%"
 }
 
-
 const calculateRealisationTag11 = ()=> {
     let percent = 
         Number((tag11Loc.querySelectorAll("input:checked").length / 
@@ -143,7 +142,6 @@ const calculateRealisationTag11 = ()=> {
 
         tag11overlayLoc.style.width = percent + "%"
 }
-
 
 const calculateRealisationTag12 = ()=> {
     let percent = 
@@ -170,3 +168,75 @@ inputsRadioArr.forEach((elem)=>{
         calculateRealisationTag12()
     })
 })
+
+const validateEmpty = (value) => {
+    if (!value) return [false, "Błąd: Pole adres e-mail nie może być puste!"]
+    return [true, ""]
+}
+
+const buttonSendLoc = document.querySelector(".btn.send-form")
+const form = document.querySelector(".questions-container")
+const sendingLoc = document.querySelector(".sending-box")
+const successLoc = document.querySelector(".success-box")
+const errorLoc = document.querySelector(".error-box")
+const inprogressLoc = document.querySelector(".inprogress-box")
+const fullnameInputLoc = document.querySelector("#fullname")
+
+const validateAll = (e) => {
+    e.preventDefault()
+
+    const validatePass = validateEmpty(fullnameInputLoc.value)
+
+    console.log("Wysyłam...")
+    displayMessageAfterSending(inprogressLoc, "Wysyłam...")
+
+    if (validatePass[0]) {
+        grecaptcha.ready(function() {
+            grecaptcha.execute("6Lf2hcIpAAAAAO1sgP7bkMbS_dHflAHZV8bG8eFO", {action: "contact"})
+            .then(async function(token){
+                let recaptchaResponse = document.getElementById("recaptchaResponse")
+                recaptchaResponse.value = token
+                let response
+                response = await fetch("./php/mail.php", {method: "POST", body: new FormData(form)})
+                    if (response.ok) {
+                        const indexEqual = response.url.indexOf("=")
+                        const status = (response.url).substr(indexEqual + 1, response.url.length - indexEqual);
+
+                        if (status === "sent") {
+                            console.log("status === 'sent'. E-mail został wysłany")
+                            displayMessageAfterSending(successLoc, "Dziękujemy. E-mail wysłany.")
+                        } else {
+                            console.log("status !== 'sent'. E-mail nie został wysłany")
+                            displayMessageAfterSending(errorLoc, "Błąd serwera. E-mail nie został wysłany. Spróbuj ponownie za chwilę!")
+                        }
+                    } else {
+                        console.log("response nie jest ok. E-mail nie został wysłany")
+                        displayMessageAfterSending(errorLoc, "Błąd serwera. E-mail nie został wysłany!")
+
+                    }
+            }) 
+        })
+
+    } else {
+        displayMessageAfterSending(errorLoc, "Walidacja nieprawidłowa!")
+        console.log("Walidacja nieprawidłowa!")
+    }
+}
+
+const displayMessageAfterSending = (container, text) => {
+    sendingLoc.style.opacity = 0
+    const timer1 = setTimeout(()=>{
+            sendingLoc.style.display = "none"
+            container.style.display = "flex"
+            
+    },500)
+   
+    const timer2 = setTimeout(()=>{
+        container.style.opacity = 1
+    },600)
+
+    container.innerText = text
+
+}
+
+buttonSendLoc.addEventListener("click", validateAll)

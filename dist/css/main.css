@@ -37,11 +37,6 @@ html {
   scroll-padding-top: 170px;
 }
 
-button {
-  z-index: 999;
-  position: absolute;
-}
-
 .radio-container {
   display: flex;
   align-items: center;
@@ -259,6 +254,108 @@ button {
   justify-content: center;
   gap: 20px;
 }
+.container .send-wrapper {
+  width: inherit;
+  margin: 20px;
+  background-color: #02A8A3;
+  margin-bottom: 50px;
+  box-shadow: rgba(50, 50, 93, 0.5) 0px 2px 5px -1px, rgba(0, 0, 0, 0.6) 0px 1px 3px -1px;
+  position: relative;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.container .send-wrapper .sending-box {
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  display: flex;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.container .send-wrapper .sending-box input {
+  border: 1px solid #02A8A3;
+  padding: 10px 20px;
+  font-family: "Lato400", sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  min-width: 400px;
+  background-color: #fff;
+  text-align: center;
+}
+.container .send-wrapper .sending-box button {
+  border: 1px solid #fff;
+  padding: 10px 70px;
+  font-family: "Lato700", sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+.container .send-wrapper .sending-box button:hover {
+  color: #02A8A3;
+  background-color: #fff;
+  border: 1px solid #02A8A3;
+}
+.container .send-wrapper .sending-box button:focus {
+  scale: 0.9;
+}
+.container .send-wrapper .success-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  opacity: 0;
+  font-family: "Lato700", sans-serif;
+  font-size: 30px;
+  color: #fff;
+  background-color: #5aa802;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  transition: opacity 0.5s;
+}
+.container .send-wrapper .inprogress-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  font-family: "Lato700", sans-serif;
+  font-size: 30px;
+  color: #fff;
+  background-color: #a8a302;
+  transition: opacity 0.5s;
+}
+.container .send-wrapper .error-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  opacity: 0;
+  font-family: "Lato700", sans-serif;
+  font-size: 30px;
+  color: #fff;
+  background-color: #a80207;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  transition: opacity 0.5s;
+}
+
 @keyframes progress-bar-stripes {
   0% {
     background-position: 50px 0;
