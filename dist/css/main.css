@@ -210,6 +210,8 @@ html {
 }
 .container .questionnaire .questions-container {
   margin-top: 170px;
+  transition: all 0.3s ease-in;
+  opacity: 0;
 }
 .container .questionnaire .questions-container .section {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -354,6 +356,48 @@ html {
   align-items: center;
   padding: 40px;
   transition: opacity 0.5s;
+}
+
+.entry-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: #5AA802;
+  padding: 50px;
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  gap: 50px;
+  z-index: 99;
+  transition: all 0.2s;
+  opacity: 1;
+}
+.entry-wrapper input {
+  background-color: #fff;
+  min-width: 400px;
+  padding: 10px 20px;
+  font-size: 20px;
+  box-shadow: inset 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+.entry-wrapper .btn {
+  border: 3px solid #fff;
+  padding: 6px 50px 8px 50px;
+  border-radius: 10px;
+  color: #fff;
+  font-family: "Lato700", sans-serif;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.entry-wrapper .btn:hover {
+  border: 3px solid #5AA802;
+  color: #5AA802;
+  background-color: #fff;
 }
 
 @keyframes progress-bar-stripes {

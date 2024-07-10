@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["patient.js"],"sourcesContent":["\"use strict\";\r\n\r\nexport const patientsArr = [\"miroslawrup7@gmail.com\", \"info@wylecz-depresje.pl\"]"],"file":"patient.js"}
